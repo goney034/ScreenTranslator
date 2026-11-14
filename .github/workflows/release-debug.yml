@@ -1,11 +1,12 @@
 name: Release (debug-signed)
 
-# 发布不依赖私有签名密钥的预发布版：推送 `test-v*` tag 即可。
+# 发布不依赖私有签名密钥的预发布版：把代码推到 `release-debug` 分支即可，
+# tag 与 pre-release 由本 workflow 自动创建。
 # 使用 debug 签名，可直接安装；正式签名版仍走 release.yml（需要 keystore secrets）。
 on:
   push:
-    tags:
-      - 'test-v*'
+    branches:
+      - release-debug
 
 permissions:
   contents: write
@@ -42,10 +43,12 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          NAME="ScreenTranslator-${GITHUB_REF_NAME#test-v}-debug.apk"
+          VER=$(grep -oP 'versionName = "\K[^"]+' app/build.gradle.kts | head -n1)
+          TAG="test-v${VER}-r${GITHUB_RUN_NUMBER}"
+          NAME="ScreenTranslator-${VER}-r${GITHUB_RUN_NUMBER}-debug.apk"
           cp app/build/outputs/apk/debug/app-debug.apk "$NAME"
           sha256sum "$NAME" > "$NAME.sha256"
-          gh release create "$GITHUB_REF_NAME" "$NAME" "$NAME.sha256" \
-            --repo "$GITHUB_REPOSITORY" --prerelease --generate-notes \
-            --title "$GITHUB_REF_NAME" \
+          gh release create "$TAG" "$NAME" "$NAME.sha256" \
+            --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --prerelease \
+            --title "$TAG" \
             --notes "Adds a 'Detect API & list models' panel: auto-detects OpenAI/Anthropic-style APIs, lists all models and tests any model (or any typed name) with a real 1-token request. Debug-signed build."
