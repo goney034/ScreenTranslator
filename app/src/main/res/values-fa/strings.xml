@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">مترجم حبابی صفحه</string>
+    <string name="intro">یک حباب شناور هر متنی را روی صفحه بین فارسی و انگلیسی ترجمه می‌کند؛ با کلید API خودت برای ChatGPT، Gemini یا Claude.</string>
+    <string name="section_ai">سرویس هوش مصنوعی</string>
+    <string name="api_key">کلید API</string>
+    <string name="base_url">آدرس پایه</string>
+    <string name="base_url_hint">فقط برای پروکسی یا سرویس سازگار تغییر بده</string>
+    <string name="model">مدل</string>
+    <string name="model_hint">هر اسم مدلی را بنویس یا پایین انتخاب کن. مدل باید تصویر را پشتیبانی کند.</string>
+    <string name="section_models">مدل‌ها</string>
+    <string name="fetch_models">دریافت لیست مدل‌ها</string>
+    <string name="test_current">تست این مدل</string>
+    <string name="filter_models">جستجوی مدل</string>
+    <string name="test_all">تست همهٔ نمایش‌داده‌شده‌ها</string>
+    <string name="test">تست</string>
+    <string name="use">استفاده</string>
+    <string name="summary">%1$d فعال · %2$d غیرفعال</string>
+    <string name="show_more">نمایش %1$d مورد دیگر</string>
+    <string name="no_models">سرویس هیچ مدلی برنگرداند</string>
+    <string name="result_ok">فعال · %1$d میلی‌ثانیه</string>
+    <string name="result_fail">غیرفعال · %1$s</string>
+    <string name="section_direction">جهت ترجمه</string>
+    <string name="direction_auto">خودکار (فارسی ⇄ انگلیسی)</string>
+    <string name="direction_fa_en">فارسی ← انگلیسی</string>
+    <string name="direction_en_fa">انگلیسی ← فارسی</string>
+    <string name="section_start">حباب</string>
+    <string name="start_hint">اجازهٔ «نمایش روی سایر برنامه‌ها» را بده و ضبط صفحه را تأیید کن. برای ترجمه روی حباب بزن و برای پاک کردن دوباره بزن.</string>
+    <string name="start_bubble">شروع حباب</string>
+    <string name="stop_bubble">توقف حباب</string>
+    <string name="privacy">عکس صفحه فقط با کلید خودت برای همان سرویسی که انتخاب کرده‌ای ارسال می‌شود.</string>
+    <string name="bubble_label">ترجمه</string>
+    <string name="bubble_clear">✕</string>
+    <string name="stop">توقف</string>
+    <string name="notification_channel">حباب مترجم</string>
+    <string name="notification_title">مترجم صفحه فعال است</string>
+    <string name="notification_text">برای ترجمهٔ صفحه روی حباب شناور بزن</string>
+    <string name="error_no_key">اول کلید API و مدل را وارد کن</string>
+    <string name="error_no_frame">ضبط صفحه ناموفق بود، دوباره امتحان کن</string>
+    <string name="nothing_to_translate">متنی برای ترجمه پیدا نشد</string>
+    <string name="error_generic">خطا: %1$s</string>
+</resources>

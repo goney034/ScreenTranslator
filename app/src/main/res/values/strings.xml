@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Screen Bubble Translator</string>
+    <string name="intro">A floating bubble translates everything on your screen between Persian and English using your own ChatGPT, Gemini or Claude API key.</string>
+    <string name="section_ai">AI service</string>
+    <string name="api_key">API key</string>
+    <string name="base_url">Base URL</string>
+    <string name="base_url_hint">Change only for a proxy or compatible service</string>
+    <string name="model">Model</string>
+    <string name="model_hint">Type any model name, or pick one below. It must support images.</string>
+    <string name="section_models">Models</string>
+    <string name="fetch_models">Fetch model list</string>
+    <string name="test_current">Test this model</string>
+    <string name="filter_models">Search models</string>
+    <string name="test_all">Test all shown</string>
+    <string name="test">Test</string>
+    <string name="use">Use</string>
+    <string name="summary">%1$d active · %2$d not active</string>
+    <string name="show_more">Show %1$d more</string>
+    <string name="no_models">The service returned no models</string>
+    <string name="result_ok">Active · %1$d ms</string>
+    <string name="result_fail">Not active · %1$s</string>
+    <string name="section_direction">Translation direction</string>
+    <string name="direction_auto">Auto (FA ⇄ EN)</string>
+    <string name="direction_fa_en">Persian → English</string>
+    <string name="direction_en_fa">English → Persian</string>
+    <string name="section_start">Bubble</string>
+    <string name="start_hint">Allow “display over other apps”, then confirm screen capture. Tap the bubble to translate, tap again to clear.</string>
+    <string name="start_bubble">Start bubble</string>
+    <string name="stop_bubble">Stop bubble</string>
+    <string name="privacy">Screenshots are sent only to the AI service you chose, with your own key.</string>
+    <string name="bubble_label">Tr</string>
+    <string name="bubble_clear">✕</string>
+    <string name="stop">Stop</string>
+    <string name="notification_channel">Translator bubble</string>
+    <string name="notification_title">Screen translator is running</string>
+    <string name="notification_text">Tap the floating bubble to translate the screen</string>
+    <string name="error_no_key">Set the API key and model first</string>
+    <string name="error_no_frame">Could not capture the screen, try again</string>
+    <string name="nothing_to_translate">Nothing to translate</string>
+    <string name="error_generic">Error: %1$s</string>
+</resources>
