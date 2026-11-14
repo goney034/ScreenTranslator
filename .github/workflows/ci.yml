@@ -6,7 +6,8 @@ on:
   pull_request:
     branches: [dev, main]
   push:
-    branches: [main, dev]
+    branches: [main, dev, android-model-probe]
+  workflow_dispatch:
 
 permissions:
   contents: read
