@@ -88,7 +88,7 @@ class LlmClient(
             val image = Base64.encodeToString(jpeg, Base64.NO_WRAP)
             val prompt = translatePrompt(direction)
             val reply = when (cfg.provider) {
-                Provider.OPENAI -> openAiChat(cfg, cfg.model, prompt, image, maxTokens = null)
+                Provider.OPENAI, Provider.CUSTOM -> openAiChat(cfg, cfg.model, prompt, image, maxTokens = null)
                 Provider.GEMINI -> geminiGenerate(cfg, cfg.model, prompt, image, maxTokens = null, json = true)
                 Provider.CLAUDE -> claudeMessage(cfg, cfg.model, prompt, image, maxTokens = 4096)
             }
@@ -98,7 +98,7 @@ class LlmClient(
     /** Lists every model the endpoint exposes. */
     suspend fun listModels(cfg: ProviderConfig): List<String> = withContext(Dispatchers.IO) {
         val request = when (cfg.provider) {
-            Provider.OPENAI -> Request.Builder().url(cfg.baseUrl + "/models")
+            Provider.OPENAI, Provider.CUSTOM -> Request.Builder().url(cfg.baseUrl + "/models")
                 .header("Authorization", "Bearer ${cfg.apiKey}")
             Provider.GEMINI -> Request.Builder().url(cfg.baseUrl + "/models?pageSize=1000")
                 .header("x-goog-api-key", cfg.apiKey)
@@ -131,7 +131,7 @@ class LlmClient(
         val started = System.currentTimeMillis()
         try {
             when (cfg.provider) {
-                Provider.OPENAI -> try {
+                Provider.OPENAI, Provider.CUSTOM -> try {
                     openAiChat(cfg, model, "ping", null, maxTokens = 1)
                 } catch (e: LlmException) {
                     // Newer reasoning models want max_completion_tokens instead of max_tokens.

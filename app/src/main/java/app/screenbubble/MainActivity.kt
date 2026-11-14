@@ -14,6 +14,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -135,7 +136,10 @@ private fun SettingsScreen() {
         Text(stringResource(R.string.intro), style = MaterialTheme.typography.bodyMedium)
 
         Text(stringResource(R.string.section_ai), style = MaterialTheme.typography.titleMedium)
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+        Row(
+            Modifier.horizontalScroll(rememberScrollState()),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
             Provider.values().forEach { p ->
                 FilterChip(selected = provider == p, onClick = { selectProvider(p) }, label = { Text(p.label) })
             }

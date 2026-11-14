@@ -10,6 +10,8 @@ enum class Provider(
     OPENAI("ChatGPT (OpenAI)", "https://api.openai.com/v1", "gpt-4o-mini"),
     GEMINI("Gemini", "https://generativelanguage.googleapis.com/v1beta", "gemini-2.0-flash"),
     CLAUDE("Claude", "https://api.anthropic.com/v1", "claude-sonnet-4-5"),
+    // Any OpenAI-compatible service (same wire format as OpenAI); pre-filled with aiapi.world.
+    CUSTOM("aiapi.world (OpenAI-compatible)", "https://aiapi.world/v1", "gpt-4o-mini"),
 }
 
 enum class Direction { AUTO, FA_TO_EN, EN_TO_FA }
